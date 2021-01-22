@@ -1,5 +1,7 @@
 <?php
 
+
+//接口验证类,用于被微信服务器调用验证token
 define('TOKEN','JR1Y1yn2fYVy2QQg0f2YyFh07XgFs2gx');
 checkSignature();
 //checkSignature();//这个函数运行一次配置成功就可以了

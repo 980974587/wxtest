@@ -1,5 +1,6 @@
 <?php
-
+define('ROOT',__DIR__);
+include_once('AccessToken.php');
 include_once('Util.php');
 //access_token":"41_fo9U3ZHFoch5ccf0UxVPSrsko34jICDkG7UZwx0GtT8EYiTq3fRD27URwV6GDV-EkafE67ozuJrQBnLk_bFOtziMh-X9Ui4AE_YJQkfRT3U"
 //expires_in:7200
@@ -34,7 +35,7 @@ if(empty($returnJson)||isset($returnJson['errcode'])){
 $openid=$returnJson['openid'];
 
 //获取accessToken
-$accessToken=Util::getUniqueInstance()->getToken();
+$accessToken=AccessToken::getUniqueInstance()->getToken();
 
 //用token和openid获取关注情况
 $url="https://api.weixin.qq.com/cgi-bin/user/info?";
