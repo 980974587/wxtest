@@ -61,15 +61,13 @@ class Util
             $dsn = "$dbms:host=$host;dbname=$dbName";
     
     
-            // try {
-            //     $dbh = new PDO($dsn, $user, $pass); //初始化一个PDO对象
-            //     echo "连接成功<br/>";
-            //     $dbh = null;
-            // } catch (PDOException $e) {
-            //     die("Error!: " . $e->getMessage() . "<br/>");
-            // }
-            //默认这个不是长连接，如果需要数据库长连接，需要最后加一个参数：array(PDO::ATTR_PERSISTENT => true) 变成这样：
-            self::$conn = new PDO($dsn, $user, $pass, array(PDO::ATTR_PERSISTENT => true));
+            try {
+                self::$conn = new PDO($dsn, $user, $pass); //初始化一个PDO对象
+            } catch (PDOException $e) {
+                die("Error!: " . $e->getMessage() . "<br/>");
+            }
+            // //默认这个不是长连接，如果需要数据库长连接，需要最后加一个参数：array(PDO::ATTR_PERSISTENT => true) 变成这样：
+            // self::$conn = new PDO($dsn, $user, $pass, array(PDO::ATTR_PERSISTENT => true));
         }
         return self::$conn;
     }

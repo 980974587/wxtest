@@ -1,6 +1,8 @@
 <?php
 require_once('Util.php');
-
+/**
+ * @desc 获取token
+ */
 class AccessToken{
     private static $accessToken;
     private static $expires_in;
@@ -27,8 +29,6 @@ class AccessToken{
     }
 
     private static function getAccessToken(){
-        // $appid='wx3f6c84918123741f';
-        // $secret='9eebefa92a78d8bd47cbb4fed8368bf4';
         $appid=Util::getConfig('config','appid');
         $secret=Util::getConfig('config','secret');
         //获取accessToken
