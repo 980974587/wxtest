@@ -1,4 +1,5 @@
 <?php
+require_once('Util.php');
 
 class AccessToken{
     private static $accessToken;
@@ -26,8 +27,10 @@ class AccessToken{
     }
 
     private static function getAccessToken(){
-        $appid='wx3f6c84918123741f';
-        $secret='9eebefa92a78d8bd47cbb4fed8368bf4';
+        // $appid='wx3f6c84918123741f';
+        // $secret='9eebefa92a78d8bd47cbb4fed8368bf4';
+        $appid=Util::getConfig('config','appid');
+        $secret=Util::getConfig('config','secret');
         //获取accessToken
         // $openid=$returnJson['access_token'];
         $urlParam=[
@@ -35,7 +38,7 @@ class AccessToken{
             'appid'=>$appid,
             'secret'=>$secret
         ];
-        $url='https://api.weixin.qq.com/cgi-bin/token?';
+        $url=Util::getConfig('config','globaleTokenUrl');
         $curlOpts=[
             // 'CURLOPT_POST'=>true,
             CURLOPT_URL=>$url.http_build_query($urlParam),

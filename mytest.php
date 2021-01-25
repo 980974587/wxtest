@@ -1,11 +1,8 @@
 <?php
 
-require_once('Util.php');
-define("ROOT",__DIR__);
+define('ROOT',__DIR__);
+include_once('AccessToken.php');
+include_once('Util.php');
 
-
-$abc=1;
-
-$abc=22;
-echo $abc;
-
+$var =Util::getConfigFile('testConfig');
+var_dump($var);

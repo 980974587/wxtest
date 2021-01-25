@@ -15,3 +15,5 @@ phpinfo();
 // ];
 // $askUrl.=http_build_query($askParam)."#wechat_redirect";
 // header("Location:".$askUrl);
+
+
