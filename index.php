@@ -54,7 +54,7 @@ if(empty($resultJson)||isset($resultJson['errcode'])){
 curl_close($ch);
 //已经关注转跳到首页
 if($resultJson['subscribe']==1){
-    var_dump($resultJson);
+    echo '';
 }else{
 //没有关注转跳到二维码界面
 }
