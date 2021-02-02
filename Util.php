@@ -1,5 +1,5 @@
 <?php
-
+require_once 'AccessToken.php';
 class Util
 {
     private static $conn = null;
@@ -76,5 +76,14 @@ class Util
         if(!is_null(self::$conn)){
             self::$conn=null;
         }
+    }
+
+    public static function genJsSign($paramList){
+        $ticket=AccessToken::getUniqueInstance()->getTicket();
+        $paramList['jsapi_ticket']=$ticket;
+        ksort($paramList);
+        $toSign=urldecode(http_build_query($paramList));
+        return $toSign;
+        return sha1($toSign);
     }
 }
